@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mammabun/public_html/
+    - /bin/cp -R * $DEPLOYPATH
