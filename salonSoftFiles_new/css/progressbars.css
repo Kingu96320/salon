@@ -1,0 +1,36 @@
+.progress-1 {
+	margin: 0 auto;
+}
+.progress-bar-1 {
+	margin: 0 0 20px 0;
+	background: #e2e2e2;
+	border-radius: 5px;
+}
+.red-bar {
+	border-radius: 4px;
+	display: block;
+	width: 0%;
+	border: 1px solid #f35454;
+	box-shadow: 0px 0px 10px 1px #f35454;
+}
+.green-bar {
+	border-radius: 4px;
+	display: block;
+	width: 0%;
+	border: 1px solid #23a03e;
+	box-shadow: 0px 0px 10px 1px #23a03e;
+}
+.blue-bar {
+	border-radius: 4px;
+	display: block;
+	width: 0%;
+	border: 1px solid #3693cf;
+	box-shadow:0px 0px 10px 1px #3693cf;
+}
+.yellow-bar {
+	border-radius: 4px;
+	display: block;
+	width: 0%;
+	border: 1px solid #ffb400;
+	box-shadow:0px 0px 10px 1px #ffb400;
+}

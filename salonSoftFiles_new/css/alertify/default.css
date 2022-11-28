@@ -1,0 +1,58 @@
+.alertify {
+	border-radius: 5px;
+	background: #FFF;
+	border: 10px solid #333; /* browsers that don't support rgba */
+	border: 10px solid rgba(0,0,0,.7);
+	-webkit-background-clip: padding;     /* Safari 4? Chrome 6? */
+	   -moz-background-clip: padding;     /* Firefox 3.6 */
+	        background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+.alertify-text {
+	border: 1px solid #CCC;
+	padding: 10px;
+}
+.alertify-message {
+	margin-bottom: 10px;
+}
+.alertify-button {
+	border-radius: 30px;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 6px 15px;
+	text-decoration: none;
+}
+.alertify-button:active {
+	position: relative;
+	box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.alertify-button-cancel,
+.alertify-button-cancel:hover,
+.alertify-button-cancel:focus {
+	background-color: #f35454;
+	border: 1px solid #f35454;
+}
+.alertify-button-ok,
+.alertify-button-ok:hover,
+.alertify-button-ok:focus {
+	background-color: #23a03e;
+	border: 1px solid #23a03e;
+}
+
+.alertify-log {
+	background: #333333;
+	padding: 15px;
+	color: #FFF;
+	border-radius: 5px;
+}
+.alertify-log-error {
+	background: #f35454;
+}
+.alertify-log-success {
+	background: #23a03e;
+}
+.alertify-log-info {
+	background: #3693cf;
+}
+.alertify-log-warning {
+	background: #ffb400;
+}

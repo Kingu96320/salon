@@ -1,0 +1,171 @@
+/*************** 1. Sass Variables ***************/
+
+
+/************************************************
+	************************************************
+											Colors
+	************************************************
+************************************************/
+
+$body-bg: #e6ecf3;
+
+$border-bg: #e1e5f1;
+
+$font-color: #2e323c;
+$font-color-light: #8796af;
+
+$white: #ffffff;
+$black: #000000;
+
+$light-color: #dae4ef;
+$dark-color: #292929;
+
+$primary-color: #118cf1;
+$primary-light-color: #1ad0fc;
+
+$secondary-color: #f23f3f;
+$secondary-light-color: #c246f8;
+
+$red: #f23f3f;
+$light-red: #ff7f34;
+$lighter-red: #ff4f4f;
+$dark-red: #b50000;
+$pink-red: #f75851;
+
+$yellow: #ffc107;
+$light-yellow: #ffda3e;
+$dark-yellow: #ffa63e;
+
+$green: #27b963;
+$light-green: #a5b936;
+
+$blue: #2698e2;
+$light-blue: #62BCF6;
+$dark-blue: #2a99ef;
+$darker-blue: #0a1829;
+
+$teal: #1abaca;
+$light-teal: #47BCC7;
+
+$orange: #FF7E39;
+$light-orange: #FFB280;
+
+$purple: #5a66b5;
+$light-purple: #e96450;
+
+$violet: #712c69;
+$light-violet: #225e9e;
+
+$brown: #79574b;
+$light-brown: #e7e0e1;
+
+$pink: #f15f79;
+$light-pink: #b24592;
+
+$facebook: #3B5998;
+$twitter: #55ACEE;
+$linkedin: #007BB5;
+$gplus: #E02F2F;
+
+$lock-screen-bg: #363344;
+$lock-screen-theme: #b62b45;
+$lock-screen-theme2: #e2a0b5;
+
+$sidebar-dark-bg: #1b2947;
+$sidebar-bg: #17202b;
+
+$card-bg: #f0f4f9;
+$card-header-bg: #17202b;
+
+$chat-box-pink: #fff3f3;
+$chat-box-blue: #ebf8ff;
+/************************************************
+	************************************************
+											Mixins
+	************************************************
+************************************************/
+
+// Gradients
+@mixin linear-gradient($fromColor, $toColor) {
+	background-color: $toColor; /* Fallback Color */
+	background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(right, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image: -moz-linear-gradient(right, $fromColor, $toColor); /* FF3.6 */
+	background-image: -ms-linear-gradient(right, $fromColor, $toColor); /* IE10 */
+	background-image: -o-linear-gradient(right, $fromColor, $toColor); /* Opera 11.10+ */
+	background-image: linear-gradient(right, $fromColor, $toColor);
+}
+@mixin linear-gradient-tb($top, $bottom){
+	background: $top; /* Old browsers */
+	background: -moz-linear-gradient(top, $top 0%, $bottom 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, $top 0%,$bottom 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, $top 0%,$bottom 100%); /* IE10+ */
+	background: linear-gradient(to bottom, $top 0%,$bottom 100%); /* W3C */
+}
+@mixin linear-gradient-tmb($startColor: #ffffff, $midColor: #eeeeee, $colorStop: 50%, $endColor: #cccccc) {
+	background-color: mix($midColor, $endColor, 80%);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
+	background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
+	background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-repeat: no-repeat;
+}
+
+// Transition
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+// Box Sizing
+@mixin box-sizing($string){
+	-webkit-box-sizing: $string;
+	-moz-box-sizing: $string;
+	box-sizing: $string;
+}
+
+// Box Shadow
+@mixin box-shadow($off-y, $off-x, $blur, $color){
+	-moz-box-shadow: $off-y $off-x $blur $color; /* FF3.5+ */
+	-webkit-box-shadow: $off-y $off-x $blur $color; /* Saf3.0+, Chrome */
+	box-shadow: $off-y $off-x $blur $color; /* Opera 10.5, IE9 */
+}
+
+@mixin box-shadow-inset($top, $left, $blur, $color, $inset:"") {
+	-webkit-box-shadow: $top $left $blur $color $inset;
+	-moz-box-shadow: $top $left $blur $color $inset;
+	box-shadow: $top $left $blur $color $inset;
+}
+
+// Border Radius
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin border-radius-all-val($radius1, $radius2, $radius3, $radius4) {
+	-webkit-border-radius: $radius1 $radius2 $radius3 $radius4;
+	-moz-border-radius: $radius1 $radius2 $radius3 $radius4;
+	border-radius: $radius1 $radius2 $radius3 $radius4;
+}
+
+@mixin transform($args){
+	-webkit-transform: $args;
+	-moz-transform: $args;
+	-o-transform: $args;
+	-ms-transform: $args;
+	transform: $args;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+	opacity: $opacity / 100;
+	filter: alpha(opacity=$opacity);
+}
