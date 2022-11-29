@@ -1,5 +1,8 @@
 <?php 
 include "./includes/db_include.php";
+
+
+
 if(isset($_SESSION['uid'])){
     header('LOCATION:dashboard.php');die();
 }
@@ -7,51 +10,50 @@ if(isset($_POST['signin'])){
 	$user = $_POST['user'];
 	$pass = $_POST['pass'];
 	//echo $pass."<br>";
-	// $pass = md5($pass);
+	$pass = md5($pass);
 	$salt="ea7b7a7372bceab4a64b3c2d380c8a72";
-	// $pass = $salt.$pass;
-	// $pass = md5(sha1(md5($pass)));
+	$pass = $salt.$pass;
+	$pass = md5(sha1(md5($pass)));
 	$branch_id = $_POST['branch_id'];
 	$remember = $_POST['remember'];
 	$query = "SELECT * FROM `user` WHERE username='".$user."' and pass='".$pass."' and branch_id='".$branch_id."' and active=0";
 
-        $result = get_row_count($query,[],$conn);
-        $ip = clientip();
+    $result = get_row_count($query,[],$conn);
+    $ip = clientip();
+    if($result && ($result == 1)){ 
+        $row = query_by_id($query,[],$conn)[0];
+        
+        
+        $u = $_SERVER['REQUEST_URI'];
+        $su = explode('/',$u);
+        $_SESSION['soft_url'] = $su[1];
+        
+        $_SESSION['user'] = $row['username'];
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['uid'] = $row['id'];
+        $_SESSION['u_role'] = $row['role'];
+        $_SESSION['salon_uid'] = $salon_uid;
+        $_SESSION['branch_id'] = $row['branch_id'];
 
-        if($result && ($result == 1)){ 
-            $row = query_by_id($query,[],$conn)[0];
-            
-            
-            $u = $_SERVER['REQUEST_URI'];
-	        $su = explode('/',$u);
-            $_SESSION['soft_url'] = $su[1];
-            
-            $_SESSION['user'] = $row['username'];
-            $_SESSION['name'] = $row['name'];
-            $_SESSION['uid'] = $row['id'];
-            $_SESSION['u_role'] = $row['role'];
-            $_SESSION['salon_uid'] = '03215';
-            $_SESSION['branch_id'] = $row['branch_id'];
+        $system = systemname($conn);
 
-            $system = systemname($conn);
-
-            $cookie_name = $_SESSION['user'];
-            $cookie_value = $row['id'];
-            $expiry = time() + (86400 * 30);
-            getuser($user,"Success",$ip,$conn);
-            $_SESSION['t']  = 1;
-            $_SESSION['tmsg']  = "Welcome ".$_SESSION['name']." To ".$system." ";
-            header('LOCATION:dashboard.php');die();
-        }else
+        $cookie_name = $_SESSION['user'];
+        $cookie_value = $row['id'];
+        $expiry = time() + (86400 * 30);
+        getuser($user,"Success",$ip,$conn);
+        $_SESSION['t']  = 1;
+        $_SESSION['tmsg']  = "Welcome ".$_SESSION['name']." To ".$system." ";
+        header('LOCATION:dashboard.php') or die();
+    }   else
 		{
             getuser($user,"Failed",$ip,$conn);
             $_SESSION['t']  = 2;
             $_SESSION['tmsg']  = "Login Failed";
             header('LOCATION:login.php');die();
         }
-}
 
-$bgurl = query_by_id("SELECT loginbg FROM `system` WHERE active=0",[],$conn)[0];
+	$bgurl = query_by_id("SELECT loginbg FROM `system` WHERE active=0",[],$conn)[0];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

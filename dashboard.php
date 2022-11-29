@@ -9,7 +9,10 @@
 	
 	$uid = $_SESSION['uid'];
 	
+
+
 	include "topbar.php";
+	
 	include "header.php";
 	include "menu.php";
 	

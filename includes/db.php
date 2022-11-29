@@ -7,9 +7,9 @@ if (get_ip_address() !== get_ip_address(true))
 }
 
 $config = array(
-	'username' => 'mammabun_salonbei_salon',
-	'password' => 'salon_786',
-	'database' => 'mammabun_salonsoftware'  
+	'username' => 'root',
+	'password' => '',
+	'database' => 'salonsoftware'  
 );
 
 

@@ -1,12 +1,14 @@
 	<?php 
-	   echo getdate();
 	
+	   // echo getdate();
+
 	    $u = $_SERVER['REQUEST_URI'];
 	    $su = explode('/',$u);
-	    if($su['1'] != $_SESSION['soft_url']){
-            echo '<meta http-equiv="refresh" content="0; url=logout.php" />';
-			die(); 
-	    }
+
+	 //    if($su['1'] != $_SESSION['soft_url']){
+  //           echo '<meta http-equiv="refresh" content="0; url=logout.php" />';
+		// 	die(); 
+	 //    }
 		if(isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'superadmin'){
 			if(isset($_POST['branch_list'])){
 				$branch_id = $_POST['branch_list'];

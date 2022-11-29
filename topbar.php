@@ -8,12 +8,14 @@ if(!isset($_SESSION['tmsg'])){
 if(!$_SESSION['uid'] || (isset($_SESSION['uid'],$_SESSION['salon_uid']) && $_SESSION['salon_uid']!=$salon_uid)){
         header('LOCATION:logout.php');die();
 }
+
 $role = $_SESSION['u_role'];
  if(strpos($_SERVER['REQUEST_URI'],'services.php')||strpos($_SERVER['REQUEST_URI'],'products.php')||strpos($_SERVER['REQUEST_URI'],'editproduct.php')||strpos($_SERVER['REQUEST_URI'],'beauticians.php')||strpos($_SERVER['REQUEST_URI'],'editbeauticians.php')||strpos($_SERVER['REQUEST_URI'],'coupons.php')||strpos($_SERVER['REQUEST_URI'],'editcoupons.php')||strpos($_SERVER['REQUEST_URI'],'employees.php')||strpos($_SERVER['REQUEST_URI'],'editemployees.php')||strpos($_SERVER['REQUEST_URI'],'users.php')||strpos($_SERVER['REQUEST_URI'],'edituser.php')||strpos($_SERVER['REQUEST_URI'],'packages.php')||strpos($_SERVER['REQUEST_URI'],'vendor.php')||strpos($_SERVER['REQUEST_URI'],'editvendor.php')||strpos($_SERVER['REQUEST_URI'],'editpackage.php')){
 	if($role==2){
             header('LOCATION:dashboard.php');die();
 	}
  }
+
 ?>
 
 <!DOCTYPE html>
