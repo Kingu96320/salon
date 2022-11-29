@@ -5,11 +5,13 @@ if (get_ip_address() !== get_ip_address(true))
 {
     //die("Please wait while we are varifying your details !");
 }
-
+// 'username' => 'mammabun_salonbei_salon',
+// 'password' => 'salon_786',
+// 'database' => 'mammabun_salonsoftware'
 $config = array(
-	'username' => 'root',
-	'password' => '',
-	'database' => 'salonsoftware'  
+	'username' => 'mammabun_salonbei_salon',
+	'password' => 'salon_786',
+	'database' => 'mammabun_salonsoftware	'  
 );
 
 
