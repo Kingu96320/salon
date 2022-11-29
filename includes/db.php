@@ -7,8 +7,8 @@ if (get_ip_address() !== get_ip_address(true))
 }
 
 $config = array(
-	'username' => 'root',
-	'password' => '',
+	'username' => 'salonbei_salon',
+	'password' => 'salon_786',
 	'database' => 'salonsoftware'  
 );
 
